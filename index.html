@@ -6,212 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="bookmark" href="favicon.ico" type="image/x-icon">
-    <title>hcie学习分享</title>
-    <style>
-        body{
-            background: #263238;
-            color: #b7abab;
-            padding-top: 100px;
-            overflow: hidden;
-            font-size: 14px;
-        }
-        ul{
-            list-style: none;
-            display: flex;
-	        padding: 0;
-            justify-content: center;
-        }
-        a{
-            text-decoration: none;
-            color: #b7abab;
-        }
-        .box{
-            text-align: center;
-        }
-        .box .logo{
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            display: block;
-            margin: 2rem auto;
-            opacity: .8;
-        }
-        .box .name{
-            color: #f9e8e8;
-            font-size: 24px;
-            margin-bottom: 40px;
-        }
-        .box .bio{
-            position: relative;
-            width: 900px;
-            margin: 2rem auto;
-            border-top: 1px solid #555;
-            border-bottom: 1px solid #555;
-        }
-        .box .bio .quotes-left{
-             position: absolute;
-             left: 5px;
-             top: 5px;
-        }
-        .box .bio .quotes-right{
-            position: absolute;
-             right: 5px;
-             bottom: 5px;
-        }
-        .box .bio svg{
-             width: 16px;
-             height: 16px;
-        }
-        .box .bio .bio-content{
-             padding: 30px 0;
-        }
-        .box .navbar{
-            margin-bottom: 40px;
-        }
-        .box .navbar svg{
-            width: 16px;
-            height: 16px;
-        }  
-        .box .navbar a{
-            padding: 5px 5px;
-            margin: 0 5px;
-            border-bottom: 1px dashed #756c6c;
-            -webkit-transition: all .5s ease;
-            transition: all .5s ease;
-        } 
-        .box .navbar a:hover{
-            color: #fff;
-        } 
-        .animated {
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-        }
-        @-webkit-keyframes flipInX {
-            from {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                -webkit-animation-timing-function: ease-in;
-                animation-timing-function: ease-in;
-                opacity: 0;
-            }
-
-            40% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                -webkit-animation-timing-function: ease-in;
-                animation-timing-function: ease-in;
-            }
-
-            60% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                opacity: 1;
-            }
-
-            80% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-            }
-
-            to {
-                -webkit-transform: perspective(400px);
-                transform: perspective(400px);
-            }
-        }
-
-        @keyframes flipInX {
-            from {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                -webkit-animation-timing-function: ease-in;
-                animation-timing-function: ease-in;
-                opacity: 0;
-            }
-
-            40% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                -webkit-animation-timing-function: ease-in;
-                animation-timing-function: ease-in;
-            }
-
-            60% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                opacity: 1;
-            }
-
-            80% {
-                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-            }
-
-            to {
-                -webkit-transform: perspective(400px);
-                transform: perspective(400px);
-            }
-        }
-
-        .flipInX {
-            -webkit-backface-visibility: visible !important;
-            backface-visibility: visible !important;
-            -webkit-animation-name: flipInX;
-            animation-name: flipInX;
-        }
-        .animated.delay-1s {
-            -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-        }
-        .animated.delay-2s {
-            -webkit-animation-delay: 2s;
-            animation-delay: 2s;
-        }
-        .animated.delay-3s {
-            -webkit-animation-delay: 3s;
-            animation-delay: 3s;
-        }
-        .animated.delay-4s {
-            -webkit-animation-delay: 4s;
-            animation-delay: 4s;
-        }
-		
-		.animated.delay-0-5s {
-            -webkit-animation-delay: 0.5s;
-            animation-delay: 0.5s;
-        }
-        .animated.delay-1-5s {
-            -webkit-animation-delay: 1.5s;
-            animation-delay: 1.5s;
-        }
-        .animated.delay-2-5s {
-            -webkit-animation-delay: 2.5s;
-            animation-delay: 2.5s;
-        }
-        .animated.delay-3-5s{
-            -webkit-animation-delay: 3.5s;
-            animation-delay: 3.5s;
-        }
-		.animated.delay-4-5s {
-            -webkit-animation-delay: 4.5s;
-            animation-delay: 4.5s;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="sty.css">
+    <title>HCIE学习分享</title>    
 </head>
 <body>
-   <canvas id="world" style="position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5"></canvas> 
-  <div class="box">
-        <img src="./logo.jpg" class="logo animated flipInX">
+   <canvas id="bg" ></canvas> 
+   <div class="box">
+        <img src="https://im.51hcie.com/logo.jpg" class="logo animated flipInX">
         <h2 class="name animated flipInX delay-0-5s">一个菜鸟的技术成长之路</h2>
         <nav class="navbar animated flipInX delay-1s">
             <ul>
-                <li><a href="http://51hcie.com/blog" target="_blank">博客</a></li>
-                <li><a href="http://51hcie.com:9001" target="_blank">笔记</a></li>
-                <li><a href="http://pan.51hcie.com" target="_blank">资料</a></li>
+                <li><a href="https://51hcie.com/blog" target="_blank" title="我的个人博客">博客</a></li>
+                <li><a href="https://note.51hcie.com" target="_blank">笔记</a></li>
+                <li><a href="https://pan.51hcie.com" target="_blank">资料</a></li>
                 <li><a href="https://github.com/51hcie" target="_blank">项目</a></li>
-                <li><a href="http://51hcie.com/" target="_blank">占个坑</a></li>
-                <li><a href="http://51hcie.com/" target="_blank">占个坑</a></li>
+                <li><a href="https://im.51hcie.com/" target="_blank">镜像</a></li>
+                <li><a href="http://www.maobohe.top/" target="_blank">另一个我</a></li>
                 <li><a href="https://space.bilibili.com/44959254" target="_blank">哔哩</a></li>
             </ul>
         </nav>
@@ -238,178 +48,22 @@
                 </svg>
             </span>
         </div>
-        <div class="local animated flipInX delay-2-5s">
+        <div class="local animated flipInX delay-1-5s">
             <p>
 			  <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278693289'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278693289%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-			  <a href="http://www.beian.miit.gov.cn/" target="_blank">｜鄂ICP备20003284号-1 </a><a target="_blank" href="http://51hcie.com">｜© 2020 Copyright design by liuwen</a></p>
-		      <span id="runtime_span"></span>
-            
-      
+			  <a href="http://www.beian.miit.gov.cn/" target="_blank">鄂ICP备20003284号-1 </a>
+        <a target="_blank" href="http://51hcie.com">｜© 2020 Copyright design by liuwen</a>
+        </p>
+	      <div class="beian" >
+	 		  <img src="https://im.51hcie.com/beian.png" alt="">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010702000550" style="display:inline-block;text-decoration:none;">
+        <p style="float:left;margin: 0px 0px 0px 5px;">鄂公网安备 42010702000550号
+        </p>
+        </a> 
+		    </div>
+		    <span id="runtime_span"></span>
     </div>
-
     <script src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script>
-    <script>
-        var typed = new Typed('#typed', {
-            startDelay: 2000,
-            typeSpeed: 200,
-            loop: true,
-            loopCount: Infinity,
-            cursorChar: '🔥',
-		    strings: ['网站在努力建设中......']
-        });
-        var typed = new Typed('#typed2', {
-            startDelay: 3300,
-            typeSpeed: 200,
-            loop: true,
-            loopCount: Infinity,
-            cursorChar: '🔥',
-		    strings: ['学习中......']
-        });
-	  (function() {
-  var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
-
-  NUM_CONFETTI = 350;
-
-  COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
-
-  PI_2 = 2 * Math.PI;
-
-  canvas = document.getElementById("world");
-
-  context = canvas.getContext("2d");
-
-  window.w = 0;
-
-  window.h = 0;
-
-  resizeWindow = function() {
-    window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = window.innerHeight;
-  };
-
-  window.addEventListener('resize', resizeWindow, false);
-
-  window.onload = function() {
-    return setTimeout(resizeWindow, 0);
-  };
-
-  range = function(a, b) {
-    return (b - a) * Math.random() + a;
-  };
-
-  drawCircle = function(x, y, r, style) {
-    context.beginPath();
-    context.arc(x, y, r, 0, PI_2, false);
-    context.fillStyle = style;
-    return context.fill();
-  };
-
-  xpos = 0.5;
-
-  document.onmousemove = function(e) {
-    return xpos = e.pageX / w;
-  };
-
-  window.requestAnimationFrame = (function() {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
-      return window.setTimeout(callback, 1000 / 60);
-    };
-  })();
-
-  Confetti = class Confetti {
-    constructor() {
-      this.style = COLORS[~~range(0, 5)];
-      this.rgb = `rgba(${this.style[0]},${this.style[1]},${this.style[2]}`;
-      this.r = ~~range(2, 6);
-      this.r2 = 2 * this.r;
-      this.replace();
-    }
-
-    replace() {
-      this.opacity = 0;
-      this.dop = 0.03 * range(1, 4);
-      this.x = range(-this.r2, w - this.r2);
-      this.y = range(-20, h - this.r2);
-      this.xmax = w - this.r;
-      this.ymax = h - this.r;
-      this.vx = range(0, 2) + 8 * xpos - 5;
-      return this.vy = 0.7 * this.r + range(-1, 1);
-    }
-
-    draw() {
-      var ref;
-      this.x += this.vx;
-      this.y += this.vy;
-      this.opacity += this.dop;
-      if (this.opacity > 1) {
-        this.opacity = 1;
-        this.dop *= -1;
-      }
-      if (this.opacity < 0 || this.y > this.ymax) {
-        this.replace();
-      }
-      if (!((0 < (ref = this.x) && ref < this.xmax))) {
-        this.x = (this.x + this.xmax) % this.xmax;
-      }
-      return drawCircle(~~this.x, ~~this.y, this.r, `${this.rgb},${this.opacity})`);
-    }
-
-  };
-
-  confetti = (function() {
-    var j, ref, results;
-    results = [];
-    for (i = j = 1, ref = NUM_CONFETTI; (1 <= ref ? j <= ref : j >= ref); i = 1 <= ref ? ++j : --j) {
-      results.push(new Confetti);
-    }
-    return results;
-  })();
-
-  window.step = function() {
-    var c, j, len, results;
-    requestAnimationFrame(step);
-    context.clearRect(0, 0, w, h);
-    results = [];
-    for (j = 0, len = confetti.length; j < len; j++) {
-      c = confetti[j];
-      results.push(c.draw());
-    }
-    return results;
-  };
-
-  step();
-
-}).call(this);
-    function show_runtime(){window.setTimeout("show_runtime()",1000);X=new 
-Date("03/17/2020 12:00:00");
-Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
-a=T/M;A=Math.floor(a);b=(a-A)*24;B=Math.floor(b);c=(b-B)*60;C=Math.floor((b-B)*60);D=Math.floor((c-C)*60);
-runtime_span.innerHTML="本站基于华为云 ｜ 网站破壳: "+A+"天"+B+"小时"+C+"分"+D+"秒"}show_runtime();
-  
-                
-  
-  </script>
-
-        
-    <style type="text/css" data-typed-js-css="true">
-        .typed-cursor{
-          opacity: 1;
-        }
-        .typed-cursor.typed-cursor--blink{
-          animation: typedjsBlink 0.7s infinite;
-          -webkit-animation: typedjsBlink 0.7s infinite;
-                  animation: typedjsBlink 0.7s infinite;
-        }
-        @keyframes typedjsBlink{
-          50% { opacity: 0.0; }
-        }
-        @-webkit-keyframes typedjsBlink{
-          0% { opacity: 1; }
-          50% { opacity: 0.0; }
-          100% { opacity: 1; }
-        }
-    </style>
-
-
+    <script src="web.js"></script>
 </body>
 </html>

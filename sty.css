@@ -1,0 +1,195 @@
+
+body{
+    background: #303238;
+    color: #b7abab;
+    padding-top: 100px;
+    overflow: hidden;
+    font-size: 16px;
+}
+ul{
+    list-style: none;
+    display: flex;
+      padding: 0;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: #b7abab;
+}
+.box{
+    text-align: center;
+}
+.box .logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    margin: 2rem auto;
+    opacity: .8;
+}
+.box .name{
+    color: #f9e8e8;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+.box .bio{
+    position: relative;
+    width: 900px;
+    margin: 2rem auto;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+.box .bio .quotes-left{
+     position: absolute;
+     left: 5px;
+     top: 5px;
+}
+.box .bio .quotes-right{
+    position: absolute;
+     right: 5px;
+     bottom: 5px;
+}
+.box .bio svg{
+     width: 16px;
+     height: 16px;
+}
+.box .bio .bio-content{
+     padding: 30px 0;
+}
+.box .navbar{
+    margin-bottom: 40px;
+}
+.box .navbar svg{
+    width: 16px;
+    height: 16px;
+}  
+.box .navbar a{
+    padding: 5px 5px;
+    margin: 0 5px;
+    border-bottom: 1px dashed #756c6c;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+} 
+.box .navbar a:hover{
+    color: #fff;
+} 
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes flipInX {
+    from {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+
+    to {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+    }
+}
+
+@keyframes flipInX {
+    from {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+
+    to {
+        -webkit-transform: perspective(400px);
+        transform: perspective(400px);
+    }
+}
+
+.flipInX {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    -webkit-animation-name: flipInX;
+    animation-name: flipInX;
+}
+.animated.delay-1s {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.animated.delay-2s {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.animated.delay-3s {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+.animated.delay-4s {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.animated.delay-0-5s {
+-webkit-animation-delay: 0.5s;
+animation-delay: 0.5s;
+}
+.animated.delay-1-5s {
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.animated.delay-2-5s {
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+.animated.delay-3-5s{
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+}
+.animated.delay-4-5s {
+-webkit-animation-delay: 4.5s;
+animation-delay: 4.5s;
+}
+
+.beian {
+    width:900px;margin:0 auto; padding:20px 0;
+}
+#bg{position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5}
