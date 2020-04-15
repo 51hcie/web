@@ -1,19 +1,22 @@
+
+
+
 // 打印效果：
 var typed = new Typed('#typed', {
             startDelay: 2000,
             typeSpeed: 200,
             loop: true,
             loopCount: Infinity,
-            cursorChar: '🔥',
-        strings: ['网站在努力建设中......']
+            cursorChar: '⛏️',
+        strings: ['希望有一天不再为生活所累......']
         });
 var typed = new Typed('#typed2', {
             startDelay: 3300,
             typeSpeed: 200,
             loop: true,
             loopCount: Infinity,
-            cursorChar: '🔥',
-        strings: ['学习中......']
+            cursorChar: '✒️',
+        strings: ['我什么都不擅长，只能坚持。']
         });
 
 // 网站成立计时：
@@ -30,100 +33,179 @@ function show_runtime()
     c=(b-B)*60;
     C=Math.floor((b-B)*60);
     D=Math.floor((c-C)*60);
-    runtime_span.innerHTML="本站基于华为云 ｜ 网站破壳: "+A+"天"+B+"小时"+C+"分"+D+"秒"}
+    runtime_span.innerHTML="© 2020 Copyright design by liuwen｜网站运行 : "+A+"天"+B+"小时"+C+"分"+D+"秒"}
     show_runtime();
 
 // 背景特效：
-(function() {
-    var   COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
-          NUM_CONFETTI = 350;
-          COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
-          PI_2 = 2 * Math.PI;
-          canvas = document.getElementById("bg");
-          context = canvas.getContext("2d");
-          window.w = 0;
-          window.h = 0;
-resizeWindow = function() {
-    window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', resizeWindow, false);
-    window.onload = function() {
-    return setTimeout(resizeWindow, 0);
-    };
-range = function(a, b) {
-    return (b - a) * Math.random() + a;
-    };
-drawCircle = function(x, y, r, style) {
-    context.beginPath();
-    context.arc(x, y, r, 0, PI_2, false);
-    context.fillStyle = style;
-    return context.fill();
-    };
-xpos = 0.5;
-document.onmousemove = function(e) {
-    return xpos = e.pageX / w;
-    };
-window.requestAnimationFrame = (function() {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
-    return window.setTimeout(callback, 1000 / 60);
-    };
-    })();
+var canvas,
+	ctx,
+	width,
+	height,
+	size,
+	lines,
+	tick;
 
-Confetti = class Confetti {
-    constructor() {
-      this.style = COLORS[~~range(0, 5)];
-      this.rgb = `rgba(${this.style[0]},${this.style[1]},${this.style[2]}`;
-      this.r = ~~range(2, 6);
-      this.r2 = 2 * this.r;
-      this.replace();
-    }
-    replace() {
-      this.opacity = 0;
-      this.dop = 0.03 * range(1, 4);
-      this.x = range(-this.r2, w - this.r2);
-      this.y = range(-20, h - this.r2);
-      this.xmax = w - this.r;
-      this.ymax = h - this.r;
-      this.vx = range(0, 2) + 8 * xpos - 5;
-      return this.vy = 0.7 * this.r + range(-1, 1);
-    }
-    draw() {
-      var ref;
-      this.x += this.vx;
-      this.y += this.vy;
-      this.opacity += this.dop;
-      if (this.opacity > 1) {
-        this.opacity = 1;
-        this.dop *= -1;
-      }
-      if (this.opacity < 0 || this.y > this.ymax) {
-        this.replace();
-      }
-      if (!((0 < (ref = this.x) && ref < this.xmax))) {
-        this.x = (this.x + this.xmax) % this.xmax;
-      }
-      return drawCircle(~~this.x, ~~this.y, this.r, `${this.rgb},${this.opacity})`);
-      }
-      };
-confetti = (function() {
-    var j, ref, results;
-    results = [];
-    for (i = j = 1, ref = NUM_CONFETTI; (1 <= ref ? j <= ref : j >= ref); i = 1 <= ref ? ++j : --j) {
-      results.push(new Confetti);
-    }
-    return results;
-    })();
-window.step = function() {
-    var c, j, len, results;
-    requestAnimationFrame(step);
-    context.clearRect(0, 0, w, h);
-    results = [];
-    for (j = 0, len = confetti.length; j < len; j++) {
-      c = confetti[j];
-      results.push(c.draw());
-    }
-    return results;
-  };
-step();
-}).call(this);
+function line() {
+	this.path = [];
+	this.speed = rand(10, 20);
+	this.count = randInt(10, 30);
+	this.x = width / 2, +1;
+	this.y = height / 2 + 1;
+	this.target = {
+		x: width / 2,
+		y: height / 2
+	};
+	this.dist = 0;
+	this.angle = 0;
+	this.hue = tick / 5;
+	this.life = 1;
+	this.updateAngle();
+	this.updateDist();
+}
+
+line.prototype.step = function(i) {
+	this.x += Math.cos(this.angle) * this.speed;
+	this.y += Math.sin(this.angle) * this.speed;
+
+	this.updateDist();
+
+	if (this.dist < this.speed) {
+		this.x = this.target.x;
+		this.y = this.target.y;
+		this.changeTarget();
+	}
+
+	this.path.push({
+		x: this.x,
+		y: this.y
+	});
+	if (this.path.length > this.count) {
+		this.path.shift();
+	}
+
+	this.life -= 0.001;
+
+	if (this.life <= 0) {
+		this.path = null;
+		lines.splice(i, 1);
+	}
+};
+
+line.prototype.updateDist = function() {
+	var dx = this.target.x - this.x,
+		dy = this.target.y - this.y;
+	this.dist = Math.sqrt(dx * dx + dy * dy);
+}
+
+line.prototype.updateAngle = function() {
+	var dx = this.target.x - this.x,
+		dy = this.target.y - this.y;
+	this.angle = Math.atan2(dy, dx);
+}
+
+line.prototype.changeTarget = function() {
+	var randStart = randInt(0, 3);
+	switch (randStart) {
+		case 0: // up
+			this.target.y = this.y - size;
+			break;
+		case 1: // right
+			this.target.x = this.x + size;
+			break;
+		case 2: // down
+			this.target.y = this.y + size;
+			break;
+		case 3: // left
+			this.target.x = this.x - size;
+	}
+	this.updateAngle();
+};
+
+line.prototype.draw = function(i) {
+	ctx.beginPath();
+	var rando = rand(0, 10);
+	for (var j = 0, length = this.path.length; j < length; j++) {
+		ctx[(j === 0) ? 'moveTo' : 'lineTo'](this.path[j].x + rand(-rando, rando), this.path[j].y + rand(-rando, rando));
+	}
+	ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 30) + ', 80%, 55%, ' + (this.life / 3) + ')';
+	ctx.lineWidth = rand(0.1, 2);
+	ctx.stroke();
+};
+
+function rand(min, max) {
+	return Math.random() * (max - min) + min;
+}
+
+function randInt(min, max) {
+	return Math.floor(min + Math.random() * (max - min + 1));
+};
+
+function init() {
+	canvas = document.getElementById('canvas');
+	ctx = canvas.getContext('2d');
+	size = 30;
+	lines = [];
+	reset();
+	loop();
+}
+
+function reset() {
+	width = Math.ceil(window.innerWidth / 2) * 2;
+	height = Math.ceil(window.innerHeight / 2) * 2;
+	tick = 0;
+
+	lines.length = 0;
+	canvas.width = width;
+	canvas.height = height;
+}
+
+function create() {
+	if (tick % 10 === 0) {
+		lines.push(new line());
+	}
+}
+
+function step() {
+	var i = lines.length;
+	while (i--) {
+		lines[i].step(i);
+	}
+}
+
+function clear() {
+	ctx.globalCompositeOperation = 'destination-out';
+	ctx.fillStyle = 'hsla(0, 0%, 0%, 0.1';
+	ctx.fillRect(0, 0, width, height);
+	ctx.globalCompositeOperation = 'lighter';
+}
+
+function draw() {
+	ctx.save();
+	ctx.translate(width / 2, height / 2);
+	ctx.rotate(tick * 0.001);
+	var scale = 0.8 + Math.cos(tick * 0.02) * 0.2;
+	ctx.scale(scale, scale);
+	ctx.translate(-width / 2, -height / 2);
+	var i = lines.length;
+	while (i--) {
+		lines[i].draw(i);
+	}
+	ctx.restore();
+}
+
+function loop() {
+	requestAnimationFrame(loop);
+	create();
+	step();
+	clear();
+	draw();
+	tick++;
+}
+
+function onresize() {
+	reset();
+}
+
+window.addEventListener('resize', onresize);
+
+init();

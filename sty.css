@@ -1,23 +1,35 @@
+@font-face{
+    font-family: "个性字体"；
+    src:url();
+}
 
 body{
     background: #303238;
     color: #b7abab;
-    padding-top: 100px;
     overflow: hidden;
-    font-size: 16px;
+    font-size: 15px;
 }
 ul{
     list-style: none;
     display: flex;
-      padding: 0;
+    padding: 0;
     justify-content: center;
+}
+#wen{
+    padding: 0;
+    margin: 0;
 }
 a{
     text-decoration: none;
     color: #b7abab;
 }
+a:hover{
+    color: white;
+    
+}
 .box{
     text-align: center;
+    padding-top: 100px;
 }
 .box .logo{
     width: 100px;
@@ -26,7 +38,16 @@ a{
     display: block;
     margin: 2rem auto;
     opacity: .8;
+     background: #FCFCFC;
 }
+.box .logo:hover{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    margin: 2rem auto;
+    opacity: .8;
+    }
 .box .name{
     color: #f9e8e8;
     font-size: 24px;
@@ -71,7 +92,10 @@ a{
     transition: all .5s ease;
 } 
 .box .navbar a:hover{
-    color: #fff;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 15px 12px 20px rgba(0,0,0,0.8);
 } 
 .animated {
     -webkit-animation-duration: 1s;
@@ -192,4 +216,7 @@ animation-delay: 4.5s;
 .beian {
     width:900px;margin:0 auto; padding:20px 0;
 }
-#bg{position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5}
+#canvas{position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5
+}
+
+
